@@ -13,6 +13,7 @@ public class Risk {
     private String description;
     private Double probability;
     private Double impact;
+    private Double realEstateRisk;
 
     @ManyToOne
     @JoinColumn(name = "project_id")

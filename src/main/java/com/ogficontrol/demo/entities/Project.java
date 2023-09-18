@@ -19,6 +19,8 @@ public class Project {
     private LocalDate startDate;
     private LocalDate estimatedCompletionDate;
     private String description;
+    private Double balance;
+    private Double operatingCosts;
 
     @ManyToMany(mappedBy = "projects")
     private List<User> users;
