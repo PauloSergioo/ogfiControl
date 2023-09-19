@@ -44,10 +44,13 @@ public class ProjectService {
         return new ProjectDTO(entity);
     }
 
-    @Transactional
     public ProjectDTO update(Long id, ProjectDTO dto) {
         try {
-            Project entity = repository.getReferenceById(id);
+            Optional<Project> optionalEntity = repository.findById(id);
+            if (optionalEntity.isEmpty()) {
+                throw new ResourceNotFoundException("Id not found " + id);
+            }
+            Project entity = optionalEntity.get();
             copyDtoToEntity(dto, entity);
             entity = repository.save(entity);
             return new ProjectDTO(entity);
