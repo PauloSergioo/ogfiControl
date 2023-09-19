@@ -8,17 +8,14 @@ INSERT INTO tb_user (first_name, last_name, email, password) VALUES ('Pedro', 'R
 
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
 INSERT INTO tb_role (authority) VALUES ('ROLE_USER');
-INSERT INTO tb_role (authority) VALUES ('ROLE_MANAGER');
-INSERT INTO tb_role (authority) VALUES ('ROLE_EMPLOYEE');
-INSERT INTO tb_role (authority) VALUES ('ROLE_GUEST');
 
 INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
-INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
-INSERT INTO tb_user_role (user_id, role_id) VALUES (4, 4);
-INSERT INTO tb_user_role (user_id, role_id) VALUES (5, 5);
-INSERT INTO tb_user_role (user_id, role_id) VALUES (6, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (4, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (5, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (6, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (7, 2);
 
 INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Project 1', 'Location 1', 100000.00, '2023-01-01', '2023-12-31', 'Project 1 description', 50000.00, 25000.00);

@@ -11,6 +11,7 @@ import com.ogficontrol.demo.repositories.RoleRepository;
 import com.ogficontrol.demo.repositories.UserRepository;
 import com.ogficontrol.demo.services.exceptions.DatabaseException;
 import com.ogficontrol.demo.services.exceptions.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -20,8 +21,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -42,27 +41,23 @@ public class UserService implements UserDetailsService {
 
 	@Autowired
 	private AuthService authService;
-	
-	@Transactional(readOnly = true)
+
 	public Page<UserDTO> findAllPaged(Pageable pageable) {
 		Page<User> list = repository.findAll(pageable);
 		return list.map(UserDTO::new);
 	}
 
-	@Transactional(readOnly = true)
 	public UserDTO findById(Long id) {
 		Optional<User> obj = repository.findById(id);
 		User entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new UserDTO(entity);
 	}
 
-	@Transactional(readOnly = true)
 	public UserDTO findMe() {
 		User entity = authService.authenticated();
 		return new UserDTO(entity);
 	}
 
-	@Transactional
 	public UserDTO insert(UserInsertDTO dto) {
 		User entity = new User();
 		copyDtoToEntity(dto, entity);
@@ -88,7 +83,6 @@ public class UserService implements UserDetailsService {
 		}		
 	}
 
-    @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
     	if (!repository.existsById(id)) {
     		throw new ResourceNotFoundException("Recurso não encontrado");
