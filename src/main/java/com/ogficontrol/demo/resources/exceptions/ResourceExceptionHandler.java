@@ -3,6 +3,7 @@ package com.ogficontrol.demo.resources.exceptions;
 import java.time.Instant;
 
 import com.ogficontrol.demo.services.exceptions.DatabaseException;
+import com.ogficontrol.demo.services.exceptions.InvalidProjectIdException;
 import com.ogficontrol.demo.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +56,18 @@ public class ResourceExceptionHandler {
 			err.addError(f.getField(), f.getDefaultMessage());
 		}
 		
+		return ResponseEntity.status(status).body(err);
+	}
+
+	@ExceptionHandler(InvalidProjectIdException.class)
+	public ResponseEntity<StandardError> invalidProjectId(InvalidProjectIdException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		StandardError err = new StandardError();
+		err.setTimestamp(Instant.now());
+		err.setStatus(status.value());
+		err.setError("Database exception");
+		err.setMessage(e.getMessage());
+		err.setPath(request.getRequestURI());
 		return ResponseEntity.status(status).body(err);
 	}
 }

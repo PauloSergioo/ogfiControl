@@ -18,29 +18,29 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (5, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (6, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (7, 2);
 
-INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Project 1', 'Location 1', 100000.00, '2023-01-01', '2023-12-31', 'Project 1 description', 50000.00, 25000.00);
-INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Project 2', 'Location 2', 150000.00, '2024-01-01', '2024-12-31', 'Project 2 description', 75000.00, 30000.00);
-INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Project 3', 'Location 3', 80000.00, '2023-03-01', '2023-11-30', 'Project 3 description', 40000.00, 20000.00);
-INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Project 4', 'Location 4', 120000.00, '2024-02-15', '2024-10-31', 'Project 4 description', 60000.00, 30000.00);
-INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Project 5', 'Location 5', 90000.00, '2023-06-01', '2023-09-30', 'Project 5 description', 45000.00, 22000.00);
+INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Edifício Montanha Verde', 'São Paulo', 100000.00, '2023-01-01', '2023-12-31', 'Próximo a trilhas para caminhadas e esportes ao ar livre.', 50000.00, 25000.00);
+INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Construção Praia Dourada', 'Rio de Janeiro', 150000.00, '2024-01-01', '2024-12-31', 'Residências à beira-mar com acesso direto à praia.', 75000.00, 30000.00);
+INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Complexo Urbanus', 'Rio Grande do Sul', 80000.00, '2023-03-01', '2023-11-30', 'Desenvolvimento sustentável e amigável para pedestres.', 40000.00, 20000.00);
+INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Ponte Rio Sereno', 'Minas Gerais',120000.00, '2024-02-15', '2024-10-31', 'Reduzindo tempos de deslocamento e congestionamento.', 60000.00, 30000.00);
+INSERT INTO tb_project (project_name, location, budget, start_date, estimated_completion_date, description, balance,  operating_costs) VALUES ('Torre Vista Panorâmica', 'Mato Grosso', 90000.00, '2023-06-01', '2023-09-30', 'Localização privilegiada no centro da cidade.', 45000.00, 22000.00);
 
-INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Cost 1 description', 5000.00, '2023-03-15', 1);
-INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Cost 2 description', 7000.00, '2023-04-20', 1);
-INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Cost 3 description', 6000.00, '2023-05-25', 2);
-INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Cost 4 description', 8000.00, '2023-06-30', 2);
-INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Cost 5 description', 5500.00, '2023-07-05', 3);
+INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Custo de Material', 5000.00, '2023-03-15', 1);
+INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Custo de Mão de Obra', 7000.00, '2023-04-20', 1);
+INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Custo de Mão de Obra', 6000.00, '2023-05-25', 2);
+INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Custo de Material', 8000.00, '2023-06-30', 2);
+INSERT INTO tb_cost (description, amount, date, project_id) VALUES ('Custo de Mão de Obra', 5500.00, '2023-07-05', 3);
 
-INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Risk 1 description', 0.2, 0.4, 0.1, 1);
-INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Risk 2 description', 0.3, 0.5, 0.2, 1);
-INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Risk 3 description', 0.1, 0.2, 0.05, 2);
-INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Risk 4 description', 0.4, 0.6, 0.15, 2);
-INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Risk 5 description', 0.5, 0.3, 0.1, 3);
+INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Problemas geotécnicos nas montanhas podem comprometer a estabilidade do edifício.', 0.2, 0.4, 0.1, 1);
+INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('A exposição à erosão costeira pode ameaçar a integridade das estruturas à beira-mar.', 0.3, 0.5, 0.2, 1);
+INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Mudanças na economia podem afetar o financiamento e a demanda por propriedades.', 0.1, 0.2, 0.05, 2);
+INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Problemas de construção, como escassez de recursos ou condições imprevisíveis do solo, podem atrasar a conclusão.', 0.4, 0.6, 0.15, 2);
+INSERT INTO tb_risk (description, probability, impact, real_estate_risk, project_id) VALUES ('Mudanças nas tendências do mercado imobiliário podem afetar a demanda por unidades no edifício.', 0.5, 0.3, 0.1, 3);
 
-INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Type 1', 'Document 1', '2023-02-10', 'Document 1 description', 1);
-INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Type 2', 'Document 2', '2023-03-05', 'Document 2 description', 1);
-INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Type 1', 'Document 3', '2023-04-20', 'Document 3 description', 2);
-INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Type 2', 'Document 4', '2023-05-15', 'Document 4 description', 2);
-INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Type 1', 'Document 5', '2023-06-10', 'Document 5 description', 3);
+INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Contrato', '#001', '2023-02-10', 'Um acordo formal entre o proprietário e a empresa de construção que estabelece os termos, condições e responsabilidades relacionadas à construção.', 1);
+INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Contrato', '#002', '2023-03-05', 'Um acordo formal entre o proprietário e a empresa de construção que estabelece os termos, condições e responsabilidades relacionadas à construção.', 1);
+INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Contrato', '#003', '2023-04-20', 'Um acordo formal entre o proprietário e a empresa de construção que estabelece os termos, condições e responsabilidades relacionadas à construção.', 2);
+INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Contrato', '#004', '2023-05-15', 'Um acordo formal entre o proprietário e a empresa de construção que estabelece os termos, condições e responsabilidades relacionadas à construção.', 2);
+INSERT INTO tb_document (document_type, document_name, sent_date, description, project_id) VALUES ('Contrato', '#005', '2023-06-10', 'Um acordo formal entre o proprietário e a empresa de construção que estabelece os termos, condições e responsabilidades relacionadas à construção.', 3);
 
 INSERT INTO tb_user_project (user_id, project_id) VALUES (1, 1);
 INSERT INTO tb_user_project (user_id, project_id) VALUES (1, 2);
