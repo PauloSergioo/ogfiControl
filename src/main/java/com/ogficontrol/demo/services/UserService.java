@@ -105,9 +105,16 @@ public class UserService implements UserDetailsService {
 		entity.setEmail(dto.getEmail());
 		
 		entity.getRoles().clear();
+
 		for (RoleDTO roleDto : dto.getRoles()) {
-			Role role = roleRepository.getReferenceById(roleDto.getId());
-			entity.getRoles().add(role);
+			Optional<Role> optionalRole = roleRepository.findById(roleDto.getId());
+
+			if (optionalRole.isPresent()) {
+				Role role = optionalRole.get();
+				entity.getRoles().add(role);
+			} else {
+				throw new ResourceNotFoundException("Role with ID " + roleDto.getId() + " not found.");
+			}
 		}
 	}
 
