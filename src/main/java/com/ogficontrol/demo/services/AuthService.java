@@ -2,6 +2,7 @@ package com.ogficontrol.demo.services;
 
 import com.ogficontrol.demo.entities.User;
 import com.ogficontrol.demo.repositories.UserRepository;
+import com.ogficontrol.demo.util.CustomUserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -20,13 +21,14 @@ public class AuthService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    CustomUserUtil customUserUtil;
+
 
 
     protected User authenticated() {
         try {
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            Jwt jwtPrincipal = (Jwt) authentication.getPrincipal();
-            String username = jwtPrincipal.getClaim("username");
+            String username = customUserUtil.getLoggedUsername();
             return userRepository.findByEmail(username);
         }
         catch (Exception e) {

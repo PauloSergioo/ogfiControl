@@ -116,7 +116,8 @@
 						<exclude>com/ogficontrol/demo/resources/**</exclude>
 						<exclude>com/ogficontrol/demo/resources/handlers/**</exclude>
 						<exclude>com/ogficontrol/demo/services/exceptions/**</exclude>
-						<exclude>com/ogficontrol/demo/utils/**</exclude>
+						<exclude>com/ogficontrol/demo/services/validation/**</exclude>
+						<exclude>com/ogficontrol/demo/util/**</exclude>
 					</excludes>
 				</configuration>
 				<executions>

@@ -2,11 +2,13 @@ package com.ogficontrol.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "tb_project")
 public class Project {

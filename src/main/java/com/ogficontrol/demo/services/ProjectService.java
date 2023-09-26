@@ -45,19 +45,14 @@ public class ProjectService {
     }
 
     public ProjectDTO update(Long id, ProjectDTO dto) {
-        try {
-            Optional<Project> optionalEntity = repository.findById(id);
-            if (optionalEntity.isEmpty()) {
-                throw new ResourceNotFoundException("Id not found " + id);
-            }
-            Project entity = optionalEntity.get();
-            copyDtoToEntity(dto, entity);
-            entity = repository.save(entity);
-            return new ProjectDTO(entity);
-        }
-        catch (EntityNotFoundException e) {
+        Optional<Project> optionalEntity = repository.findById(id);
+        if (optionalEntity.isEmpty()) {
             throw new ResourceNotFoundException("Id not found " + id);
         }
+        Project entity = optionalEntity.get();
+        copyDtoToEntity(dto, entity);
+        entity = repository.save(entity);
+        return new ProjectDTO(entity);
     }
 
     public void delete(Long id) {
