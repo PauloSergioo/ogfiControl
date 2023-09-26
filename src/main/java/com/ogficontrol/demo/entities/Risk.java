@@ -2,8 +2,10 @@ package com.ogficontrol.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "tb_risk")
 public class Risk {
