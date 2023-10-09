@@ -5,6 +5,7 @@ import com.ogficontrol.demo.entities.Risk;
 import com.ogficontrol.demo.repositories.ProjectRepository;
 import com.ogficontrol.demo.repositories.RiskRepository;
 import com.ogficontrol.demo.services.exceptions.InvalidProjectIdException;
+import com.ogficontrol.demo.services.validation.ProjectIdValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +22,9 @@ public class ProjectRiskService {
     private RiskRepository riskRepository;
 
     public List<RiskDTO> getProjectRisks(Long projectId) {
-        if (projectId == null || projectId < 1) {
-            throw new InvalidProjectIdException("ID do projeto inválido: " + projectId);
-        }
+        ProjectIdValidation.validateProjectId(projectId);
         List<Risk> risks = riskRepository.findByProjectId(projectId);
+        ProjectIdValidation.validateNonEmptyList(risks, "Empty risks list for project: " + projectId);
         return risks.stream().map(RiskDTO::new).collect(Collectors.toList());
     }
 }

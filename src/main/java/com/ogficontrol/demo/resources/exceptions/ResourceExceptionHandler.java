@@ -3,6 +3,7 @@ package com.ogficontrol.demo.resources.exceptions;
 import java.time.Instant;
 
 import com.ogficontrol.demo.services.exceptions.DatabaseException;
+import com.ogficontrol.demo.services.exceptions.EmptyListException;
 import com.ogficontrol.demo.services.exceptions.InvalidProjectIdException;
 import com.ogficontrol.demo.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -61,6 +62,18 @@ public class ResourceExceptionHandler {
 
 	@ExceptionHandler(InvalidProjectIdException.class)
 	public ResponseEntity<StandardError> invalidProjectId(InvalidProjectIdException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		StandardError err = new StandardError();
+		err.setTimestamp(Instant.now());
+		err.setStatus(status.value());
+		err.setError("Database exception");
+		err.setMessage(e.getMessage());
+		err.setPath(request.getRequestURI());
+		return ResponseEntity.status(status).body(err);
+	}
+
+	@ExceptionHandler(EmptyListException.class)
+	public ResponseEntity<StandardError> emptyList(EmptyListException e, HttpServletRequest request) {
 		HttpStatus status = HttpStatus.BAD_REQUEST;
 		StandardError err = new StandardError();
 		err.setTimestamp(Instant.now());
